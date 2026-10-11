@@ -8,8 +8,6 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Star
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -43,7 +41,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun SuperheroApp() {
 
-    // List of superheroes.
+    // List of six superheroes.
     val superheroes = listOf(
         Superhero(
             "Nick the Night and Day",
@@ -82,6 +80,7 @@ fun SuperheroApp() {
             text = "Superheroes",
             fontSize = 28.sp,
             fontWeight = FontWeight.Bold,
+            color = Color.Black,
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(20.dp)
@@ -95,7 +94,6 @@ fun SuperheroApp() {
         ) {
 
             items(superheroes) { hero ->
-
                 SuperheroCard(hero)
             }
         }
@@ -121,7 +119,7 @@ fun SuperheroCard(hero: Superhero) {
             verticalAlignment = Alignment.CenterVertically
         ) {
 
-            // Superhero name and description.
+            // Displays superhero name and description.
             Column(
                 modifier = Modifier.weight(1f)
             ) {
@@ -148,7 +146,7 @@ fun SuperheroCard(hero: Superhero) {
                 modifier = Modifier.width(12.dp)
             )
 
-            // Simple superhero icon.
+            // Displays a star instead of a Material Icon.
             Box(
                 modifier = Modifier
                     .size(64.dp)
@@ -159,11 +157,10 @@ fun SuperheroCard(hero: Superhero) {
                 contentAlignment = Alignment.Center
             ) {
 
-                Icon(
-                    imageVector = Icons.Filled.Star,
-                    contentDescription = hero.name,
-                    tint = Color(0xFF426B39),
-                    modifier = Modifier.size(40.dp)
+                Text(
+                    text = "★",
+                    fontSize = 40.sp,
+                    color = Color(0xFF426B39)
                 )
             }
         }
